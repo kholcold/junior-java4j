@@ -17,7 +17,7 @@ public class Square {
         int[] rst = new int[bound];
         int number = 1;
         for (int i = 0; i < rst.length; i++) {
-            rst[i] = number * number;
+            rst[i] = (int) Math.pow(number, 2);
             number++;
         }
         return rst;
