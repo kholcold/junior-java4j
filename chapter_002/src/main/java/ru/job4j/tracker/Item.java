@@ -28,6 +28,17 @@ public class Item {
      *
      * @param name        Имя.
      * @param description Описание.
+     */
+    public Item(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
+    /**
+     * Конструктор.
+     *
+     * @param name        Имя.
+     * @param description Описание.
      * @param create      Дата создания.
      */
     public Item(String name, String description, long create) {
