@@ -6,21 +6,16 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 /**
- * @author Alexandr Kholodov (alexandr.khol@gmail.com) on 25.04.18.
- * @version 1.0.
- * @since 0.1.
+ * Трекер тест.
+ * @author Alexandr Kholodov.
+ * @since 08.11.2017/
  */
 public class TrackerTest {
+    /**
+     * Тест.
+     */
     @Test
-    public void whenAddNewItemThenTrackerHasSameItem() {
-        Tracker tracker = new Tracker();
-        Item item = new Item("test1", "testDescription", 123L);
-        tracker.add(item);
-        assertThat(tracker.findAll()[0], is(item));
-    }
-
-    @Test
-    public void whenReplaceNameThenReturnNewName() {
+    public void whenUpdateNameThenReturnNewName() {
         Tracker tracker = new Tracker();
         Item previous = new Item("test1", "testDescription", 123L);
         // Добавляем заявку в трекер. Теперь в объект проинициализирован id.
@@ -30,7 +25,7 @@ public class TrackerTest {
         // Проставляем старый id из previous, который был сгенерирован выше.
         next.setId(previous.getId());
         // Обновляем заявку в трекере.
-        tracker.replace(previous.getId(), next);
+        tracker.update(next);
         // Проверяем, что заявка с таким id имеет новые имя test2.
         assertThat(tracker.findById(previous.getId()).getName(), is("test2"));
     }
@@ -45,6 +40,19 @@ public class TrackerTest {
         tracker.add(previos);
         tracker.findAll();
         assertThat(tracker.findAll()[0], is(previos));
+    }
+
+    /**
+     * Добавляем заявку и удаляем ее.
+     */
+    @Test
+    public void whenAddApplicationAndRemove() {
+        Tracker tracker = new Tracker();
+        Item previos = new Item("test1", "testDescriptor", 123L);
+        Item result = null;
+        tracker.add(previos);
+        tracker.delete(previos);
+        assertThat(tracker.findAll()[0], is(result));
     }
 
     /**

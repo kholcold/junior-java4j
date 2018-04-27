@@ -60,7 +60,7 @@ public class StubInputTest {
         Input input = new StubInput(new String[]{"2", "new test", "new desc", item.getId(), "1", "6"});
         new StartUI(input, tracker).init();
         assertThat(tracker.findAll()[0].getName(), is("new test"));
-        assertThat(tracker.findAll()[0].getDescription(), is("new desc"));
+        assertThat(tracker.findAll()[0].getDesc(), is("new desc"));
 
     }
 }

@@ -1,77 +1,68 @@
 package ru.job4j.tracker;
 
 /**
- * @author Alexandr Kholodov (alexandr.khol@gmail.com) on 25.04.18.
- * @version 1.0.
- * @since 0.1.
+ * Class Item.
+ *
+ * @author Alexandr
+ * @since 06.12.2017
  */
 public class Item {
     /**
-     * Id заявки.
+     * id.
      */
-    private String id;
+    String id;
     /**
      * Имя.
      */
-    private String name;
+    String name;
     /**
      * Описание.
      */
-    private String description;
+    String desc;
     /**
      * Дата создания.
      */
-    private long create;
+    long created;
+    /**
+     * Список комментариев.
+     */
+    String[] comments;
 
     /**
      * Конструктор.
      *
-     * @param name        Имя.
-     * @param description Описание.
+     * @param name Имя.
+     * @param desc Описание.
      */
-    public Item(String name, String description) {
+    public Item(String name, String desc) {
         this.name = name;
-        this.description = description;
+        this.desc = desc;
     }
 
     /**
      * Конструктор.
      *
-     * @param name        Имя.
-     * @param description Описание.
-     * @param create      Дата создания.
+     * @param name Имя.
+     * @param desc Описание.
+     * @param id   id.
      */
-    public Item(String name, String description, long create) {
+    public Item(String name, String desc, String id) {
         this.name = name;
-        this.description = description;
-        this.create = create;
+        this.desc = desc;
+        this.id = id;
     }
 
     /**
-     * Возвращает имя.
+     * Конструктор.
      *
-     * @return Имя.
+     * @param name    Имя.
+     * @param desc    Описание.
+     * @param created Дата создания.
      */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Возвращает описание.
-     *
-     * @return Описание.
-     */
-    public String getDescription() {
-        return description;
-    }
-
-    /**
-     * Дата создания.
-     *
-     * @return Дата.
-     */
-    public long getCreate() {
-        return create;
+    public Item(String name, String desc, long created) {
+        this.name = name;
+        this.desc = desc;
+        this.created = created;
     }
 
     /**
@@ -84,11 +75,47 @@ public class Item {
     }
 
     /**
-     * Устанавливает id.
+     * Устанавливаем id.
      *
      * @param id id.
      */
     public void setId(String id) {
         this.id = id;
+    }
+
+    /**
+     * Возвращает имя.
+     *
+     * @return name.
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Возвращает описание.
+     *
+     * @return desc.
+     */
+    public String getDesc() {
+        return desc;
+    }
+
+    /**
+     * Возвращает время создания.
+     *
+     * @return created.
+     */
+    public long getCreated() {
+        return created;
+    }
+
+    /**
+     * Возвращает комментарий.
+     *
+     * @return comments.
+     */
+    public String[] getComments() {
+        return comments;
     }
 }

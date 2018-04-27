@@ -3,38 +3,29 @@ package ru.job4j.tracker;
 import java.util.Random;
 
 /**
- * @author Alexandr Kholodov (alexandr.khol@gmail.com) on 25.04.18.
- * @version 1.0.
- * @since 0.1.
+ * Class Tracker. Класс трекер - это обертка над массивом.
+ *
+ * @author Alexandr Kholodov.
+ * @since 08.11.2017.
  */
 public class Tracker {
     /**
-     * Массив для хранения заявок.
+     * Создание массива items c длинной 100.
      */
     private Item[] items = new Item[100];
     /**
-     * Указатель ячейки для новой заявки.
+     * Позиция.
      */
     private int position = 0;
     /**
-     * Генератор случайных чисел.
+     * Константа RN присваивается рандомно.
      */
     private static final Random RN = new Random();
 
     /**
-     * Генератор id.
-     *
-     * @return случайное id.
-     */
-    public String generateId() {
-        return String.valueOf(System.currentTimeMillis() + RN.nextInt());
-    }
-
-    /**
      * Добавление заявок.
      *
-     * @param item заявка.
-     * @return заявка.
+     * @return item.
      */
     public Item add(Item item) {
         item.setId(this.generateId());
@@ -42,39 +33,57 @@ public class Tracker {
         return item;
     }
 
-    /**
-     * Редактирование заявки по id.
-     *
-     * @param id   id.
-     * @param item Заявка.
-     */
-    public void replace(String id, Item item) {
-        for (int i = 0; i != this.position; i++) {
-            if (this.items[i] != null && this.items[i].getId().equals(id)) {
-                this.items[i] = item;
+    public void edit(Item fresh) {
+        for (int index = 0; index != items.length; index++) {
+            Item item = items[index];
+            if (item != null && item.getId().equals(fresh.getId())) {
+                items[index] = fresh;
                 break;
             }
         }
     }
 
     /**
-     * Удаление заявок.
+     * Генератор Id.
      *
-     * @param id Id.
+     * @return Id.
      */
-    public void delete(String id) {
-        for (int i = 0; i != position; i++) {
-            if (this.items[i].getId().equals(id)) {
+
+    String generateId() {
+        return String.valueOf(System.currentTimeMillis() + RN.nextInt());
+    }
+
+    /**
+     * Редактирование заявок.
+     */
+    public void update(Item item) {
+        for (int i = 0; i < this.position; i++) {
+            if (items[i] != null && items[i].getId().equals(item.getId())) {
+                items[i] = item;
+                break;
+            }
+
+        }
+
+    }
+
+    /**
+     * Удаление заявок.
+     */
+    public void delete(Item item) {
+        for (int i = 0; i < this.position; i++) {
+            if (this.items[i].getId().equals(item.getId())) {
                 this.items[i] = null;
                 System.arraycopy(this.items, i + 1, this.items, i, this.items.length - (i + 1));
             }
+
         }
     }
 
     /**
      * Получение списка всех заявок.
      *
-     * @return Заявки.
+     * @return result.
      */
     public Item[] findAll() {
         Item[] result = new Item[this.position];
@@ -87,8 +96,8 @@ public class Tracker {
     /**
      * Получение списка по имени.
      *
-     * @param key Имя.
-     * @return Заявка.
+     * @param key Имя которое ищем.
+     * @return result.
      */
     public Item[] findByName(String key) {
         int arrayLong = 0;
@@ -110,11 +119,12 @@ public class Tracker {
         return result;
     }
 
+
     /**
      * Получение заявки по id.
      *
-     * @param id Id.
-     * @return Заявка.
+     * @param id По какому id ищем.
+     * @return result.
      */
     public Item findById(String id) {
         Item result = null;

@@ -1,10 +1,22 @@
 package ru.job4j.tracker;
 
 /**
- * @author Alexandr Kholodov (alexandr.khol@gmail.com) on 26.04.18.
- * @version 1.0.
- * @since 0.1.
+ * Интерфейс ввода.
  */
 public interface Input {
+    /**
+     * Метод ввода вопроса.
+     *
+     * @param question вопрос.
+     * @return String.
+     */
     String ask(String question);
+
+    /**
+     * Метод без реализации
+     * @param question Принимает String.
+     * @param range Принимает массив.
+     * @return вернем int.
+     */
+    int ask(String question, int[] range);
 }
