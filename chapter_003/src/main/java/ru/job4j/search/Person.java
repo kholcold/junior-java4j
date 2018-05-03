@@ -1,7 +1,5 @@
 package ru.job4j.search;
 
-import java.util.ArrayList;
-
 /**
  * Класс полльзователь.
  *
@@ -9,7 +7,7 @@ import java.util.ArrayList;
  * @version 1.0.
  * @since 0.1.
  */
-public class Person extends ArrayList {
+public class Person {
     private String name;
     private String surname;
     private String phone;
