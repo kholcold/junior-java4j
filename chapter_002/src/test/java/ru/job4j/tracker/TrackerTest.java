@@ -39,7 +39,7 @@ public class TrackerTest {
         Item previos = new Item("test1", "testDescriptor", 123L);
         tracker.add(previos);
         tracker.findAll();
-        assertThat(tracker.findAll()[0], is(previos));
+        assertThat(tracker.findAll().get(0), is(previos));
     }
 
     /**
@@ -49,10 +49,9 @@ public class TrackerTest {
     public void whenAddApplicationAndRemove() {
         Tracker tracker = new Tracker();
         Item previos = new Item("test1", "testDescriptor", 123L);
-        Item result = null;
         tracker.add(previos);
         tracker.delete(previos);
-        assertThat(tracker.findAll()[0], is(result));
+        assertThat(tracker.findAll().isEmpty(), is(true));
     }
 
     /**
@@ -63,6 +62,6 @@ public class TrackerTest {
         Tracker tracker = new Tracker();
         Item previos = new Item("test1", "testDescriptor", 123L);
         tracker.add(previos);
-        assertThat(tracker.findByName("test1")[0].getName(), is("test1"));
+        assertThat(tracker.findByName("test1").get(0).getName(), is("test1"));
     }
 }

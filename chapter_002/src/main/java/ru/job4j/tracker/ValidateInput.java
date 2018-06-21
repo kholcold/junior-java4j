@@ -1,7 +1,9 @@
 package ru.job4j.tracker;
 
+import java.util.ArrayList;
+
 public class ValidateInput extends ConsoleInput {
-    public int ask(String question, int[] range) {
+    public int ask(String question, ArrayList<Integer> range) {
         boolean invalid = true;
         int value = -1;
         do {

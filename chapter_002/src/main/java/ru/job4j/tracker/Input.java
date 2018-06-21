@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.ArrayList;
+
 /**
  * Интерфейс ввода.
  */
@@ -18,5 +20,5 @@ public interface Input {
      * @param range Принимает массив.
      * @return вернем int.
      */
-    int ask(String question, int[] range);
+    int ask(String question, ArrayList<Integer> range);
 }

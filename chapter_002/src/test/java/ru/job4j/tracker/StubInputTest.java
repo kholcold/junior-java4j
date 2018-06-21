@@ -17,7 +17,7 @@ public class StubInputTest {
         Tracker tracker = new Tracker();     // создаём Tracker
         Input input = new StubInput(new String[]{"0", "test name", "desc", "6"});   //создаём StubInput с последовательностью действий
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
-        assertThat(tracker.findAll()[0].getName(), is("test name")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
+        assertThat(tracker.findAll().get(0).getName(), is("test name")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
     }
 
     /**
@@ -47,7 +47,7 @@ public class StubInputTest {
         Item item = tracker.add(new Item("test", "desc", 123L));
         Input input = new StubInput(new String[]{"1", "3", item.getId(), "6"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.findAll()[0], is(result));
+        assertThat(tracker.findAll().get(0), is(result));
     }
 
     /**
@@ -59,8 +59,8 @@ public class StubInputTest {
         Item item = tracker.add(new Item("test", "desc", 123L));
         Input input = new StubInput(new String[]{"2", "new test", "new desc", item.getId(), "1", "6"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.findAll()[0].getName(), is("new test"));
-        assertThat(tracker.findAll()[0].getDesc(), is("new desc"));
+        assertThat(tracker.findAll().get(0).getName(), is("new test"));
+        assertThat(tracker.findAll().get(0).getDesc(), is("new desc"));
 
     }
 }

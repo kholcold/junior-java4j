@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.ArrayList;
+
 /**
  * Class StubInput.
  * @author Alexandr.
@@ -27,7 +29,7 @@ public class StubInput implements Input {
         return answers[position++];
     }
 
-    public int ask(String question, int[] range) {
+    public int ask(String question, ArrayList<Integer> range) {
         //throw new UnsupportedOperationException("Unsupported operation");
         return -1;
     }
