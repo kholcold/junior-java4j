@@ -11,13 +11,14 @@ import java.util.List;
 public class ConvertMatrix2List {
     /**
      * Метод конвертация двумерного массива в ArrayList.
+     *
      * @param array входящий массив.
      * @return ArrayList.
      */
     public List<Integer> toList(int[][] array) {
         List<Integer> list = new ArrayList<>();
         for (int[] i : array) {
-            for(int j : i){
+            for (int j : i) {
                 list.add(j);
             }
         }
