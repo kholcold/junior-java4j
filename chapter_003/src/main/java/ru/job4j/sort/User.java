@@ -15,7 +15,7 @@ public class User implements Comparable<User> {
     /**
      * Возвраст.
      */
-    private int age;
+    private Integer age;
 
     /**
      * Конструктор.
@@ -42,7 +42,7 @@ public class User implements Comparable<User> {
      *
      * @return Возвраст.
      */
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
@@ -55,14 +55,6 @@ public class User implements Comparable<User> {
      */
     @Override
     public int compareTo(User o) {
-        int result;
-        if (this.age > o.getAge())
-            result = 1;
-        else if (this.age < o.getAge())
-            result = -1;
-        else
-            result = 0;
-
-        return result;
+        return this.age.compareTo(o.age);
     }
 }
