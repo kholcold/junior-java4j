@@ -65,10 +65,10 @@ public class TestSortUser {
         );
         SortUser sortUser = new SortUser();
         sortUser.sortByAllFields(users);
-        assertThat(users.get(0).getAge(), is(25));
-        assertThat(users.get(1).getAge(), is(30));
-        assertThat(users.get(2).getAge(), is(26));
-        assertThat(users.get(3).getAge(), is(31));
+        assertThat(users.get(0).getAge(), is(26));
+        assertThat(users.get(1).getAge(), is(31));
+        assertThat(users.get(2).getAge(), is(25));
+        assertThat(users.get(3).getAge(), is(30));
 
     }
 }

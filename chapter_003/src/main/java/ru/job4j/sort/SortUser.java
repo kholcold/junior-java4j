@@ -59,7 +59,7 @@ public class SortUser {
                 new Comparator<User>() {
                     @Override
                     public int compare(User userOne, User userTwo) {
-                        int name = Integer.compare(userOne.getName().length(), userTwo.getName().length());
+                        int name = userOne.getName().compareTo(userTwo.getName());
                         return name == 0 ? userOne.getAge().compareTo(userTwo.getAge()) : name;
                     }
                 }
