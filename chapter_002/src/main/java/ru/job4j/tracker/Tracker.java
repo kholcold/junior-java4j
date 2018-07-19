@@ -89,7 +89,9 @@ public class Tracker {
     public ArrayList<Item> findAll() {
         ArrayList<Item> result = new ArrayList<>();
         for (Item item : items) {
-            if (item != null) result.add(item);
+            if (item != null) {
+                result.add(item);
+            }
         }
         return result;
     }
