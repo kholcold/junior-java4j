@@ -74,10 +74,8 @@ public class Transfer {
                                  String destPassport, String dstRequisite, double amount) {
         boolean transfer = false;
         if (bankAccount.containsKey(getUser(srcPassport)) && bankAccount.containsKey(getUser(destPassport))) {
-            List<Account> listAccSrc = getUserAccounts(srcPassport);
-            Account accountSrc = findAcc(listAccSrc, srcRequisite);
-            List<Account> listAccDest = getUserAccounts(destPassport);
-            Account accountDest = findAcc(listAccDest, dstRequisite);
+            Account accountSrc = getAccountForPassportAndRequisite(srcPassport, srcRequisite);
+            Account accountDest = getAccountForPassportAndRequisite(destPassport, dstRequisite);
             if (accountSrc.getValue() >= amount) {
                 accountSrc.setValue(accountSrc.getValue() - amount);
                 accountDest.setValue(accountDest.getValue() + amount);
@@ -85,17 +83,6 @@ public class Transfer {
             transfer = true;
         }
         return transfer;
-    }
-
-    private Account findAcc(List<Account> accounts, String requisite) {
-        Account result = null;
-        for (Account account : accounts) {
-            if (account.getRequisites().equals(requisite)) {
-                result = account;
-                break;
-            }
-        }
-        return result;
     }
 
     /**
@@ -114,5 +101,22 @@ public class Transfer {
         return searchedUser;
     }
 
+    /**
+     * Метод получения аккаунта по паспорту и реквизитам.
+     *
+     * @param passport  Паспорт.
+     * @param requisite Реквизиты.
+     * @return Аккаунт.
+     */
+    public Account getAccountForPassportAndRequisite(String passport, String requisite) {
+        Account result = null;
+        List<Account> list = getUserAccounts(passport);
+        for (Account account : list) {
+            if (account.getRequisites().equals(requisite)) {
+                result = account;
+            }
+        }
+        return result;
+    }
 
 }
