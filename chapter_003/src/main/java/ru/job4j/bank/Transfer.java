@@ -79,8 +79,8 @@ public class Transfer {
             if (accountSrc.getValue() >= amount) {
                 accountSrc.setValue(accountSrc.getValue() - amount);
                 accountDest.setValue(accountDest.getValue() + amount);
+                transfer = true;
             }
-            transfer = true;
         }
         return transfer;
     }
