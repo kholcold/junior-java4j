@@ -30,4 +30,12 @@ public class CoffeeMachineTest {
         assertThat(resultMachine, is(isInt));
     }
 
+    @Test
+    public void whenTestFour() {
+        CoffeeMachine machine = new CoffeeMachine();
+        int[] resultMachine = machine.changes(25, 35);
+        int[] isInt = null;
+        assertThat(resultMachine, is(isInt));
+    }
+
 }
