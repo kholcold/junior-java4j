@@ -9,7 +9,7 @@ public class CoffeeMachineTest {
     @Test
     public void whenTestOne() {
         CoffeeMachine machine = new CoffeeMachine();
-        int[] resultMachine = machine.changes(50, 35);
+        int[] resultMachine = machine.valid(50, 35);
         int[] isInt = {10, 5};
         assertThat(resultMachine, is(isInt));
     }
@@ -17,7 +17,7 @@ public class CoffeeMachineTest {
     @Test
     public void whenTestTwo() {
         CoffeeMachine machine = new CoffeeMachine();
-        int[] resultMachine = machine.changes(100, 35);
+        int[] resultMachine = machine.valid(100, 35);
         int[] isInt = {10, 10, 10, 10, 10, 10, 5};
         assertThat(resultMachine, is(isInt));
     }
@@ -25,7 +25,7 @@ public class CoffeeMachineTest {
     @Test
     public void whenTestThree() {
         CoffeeMachine machine = new CoffeeMachine();
-        int[] resultMachine = machine.changes(100, 36);
+        int[] resultMachine = machine.valid(100, 36);
         int[] isInt = {10, 10, 10, 10, 10, 10, 2, 2};
         assertThat(resultMachine, is(isInt));
     }
@@ -33,7 +33,7 @@ public class CoffeeMachineTest {
     @Test
     public void whenTestFour() {
         CoffeeMachine machine = new CoffeeMachine();
-        int[] resultMachine = machine.changes(25, 35);
+        int[] resultMachine = machine.valid(25, 35);
         int[] isInt = null;
         assertThat(resultMachine, is(isInt));
     }
