@@ -6,7 +6,7 @@ public class CoffeeMachine {
     final int[] VALUES = {10, 5, 2, 1};
 
     public int[] valid(int value, int price) {
-        int[] result = null;
+        int[] result = new int[0];
         if (value >= price) {
             result = changes(value, price);
         }
@@ -14,7 +14,7 @@ public class CoffeeMachine {
     }
 
     public int[] changes(int value, int price) {
-        int[] result = null;
+        int[] result;
         int deliveryOfMoney = value - price;
         ArrayList<Integer> listMoney = new ArrayList<>();
 
@@ -30,7 +30,7 @@ public class CoffeeMachine {
 
         result = new int[listMoney.size()];
         for (int i = 0; i < result.length; i++) {
-            result[i] = listMoney.get(i).intValue();
+            result[i] = listMoney.get(i);
         }
         return result;
     }

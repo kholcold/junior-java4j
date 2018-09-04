@@ -34,7 +34,7 @@ public class CoffeeMachineTest {
     public void whenTestFour() {
         CoffeeMachine machine = new CoffeeMachine();
         int[] resultMachine = machine.valid(25, 35);
-        int[] isInt = null;
+        int[] isInt = new int[0];
         assertThat(resultMachine, is(isInt));
     }
 
