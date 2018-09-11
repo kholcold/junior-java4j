@@ -3,7 +3,7 @@ package ru.job4j.coffee;
 import java.util.ArrayList;
 
 public class CoffeeMachine {
-    final int[] VALUES = {10, 5, 2, 1};
+    private static final int[] VALUES = {10, 5, 2, 1};
 
     public int[] valid(int value, int price) {
         int[] result = new int[0];
