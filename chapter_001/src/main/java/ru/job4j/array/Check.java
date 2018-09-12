@@ -9,15 +9,14 @@ package ru.job4j.array;
 public class Check {
     /**
      * Метод должен проверить, что все элементы в массиве являются true или false.
+     *
      * @param data входящий массив.
      * @return результат.
      */
     public boolean mono(boolean[] data) {
-        boolean result = false;
+        boolean result = true;
         for (int i = 0; i < data.length; i++) {
-            if (data[i] == data[1]) {
-                result = true;
-            } else {
+            if (data[1] != data[i]) {
                 result = false;
             }
         }
