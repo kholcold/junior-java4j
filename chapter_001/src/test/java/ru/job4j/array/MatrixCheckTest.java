@@ -40,4 +40,46 @@ public class MatrixCheckTest {
         boolean result = check.mono(input);
         assertThat(result, is(true));
     }
+
+    @Test
+    public void when4x4() {
+        MatrixCheck check = new MatrixCheck();
+        boolean[][] input = new boolean[][]{
+                {true, false, false, false},
+                {false, true, false, false},
+                {false, false, true, false},
+                {false, false, false, true}
+        };
+        boolean result = check.mono(input);
+        assertThat(result, is(true));
+    }
+
+    @Test
+    public void when4x4revers() {
+        MatrixCheck check = new MatrixCheck();
+        boolean[][] input = new boolean[][]{
+                {false, false, false, true},
+                {false, false, true, false},
+                {false, true, false, false},
+                {true, false, false, false}
+        };
+        boolean result = check.mono(input);
+        assertThat(result, is(true));
+    }
+
+    @Test
+    public void when6x6() {
+        MatrixCheck check = new MatrixCheck();
+        boolean[][] input = new boolean[][]{
+                {true, false, false, false, false, false},
+                {false, true, false, false, false, false},
+                {false, false, true, false, false, false},
+                {false, false, false, true, false, false},
+                {false, false, false, false, true, false},
+                {false, false, false, false, false, true}
+        };
+        boolean result = check.mono(input);
+        assertThat(result, is(true));
+    }
+
 }
