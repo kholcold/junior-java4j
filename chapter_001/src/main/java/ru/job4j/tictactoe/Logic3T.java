@@ -23,23 +23,34 @@ public class Logic3T {
      */
     public boolean isWinnerX() {
         boolean result = false;
+        int count = 0;
         for (int i = 0; i < table.length; i++) {
-            if (table[0][0].hasMarkX()
-                    && table[i][i].hasMarkX()
-                    && table[table.length - 1][table.length - 1].hasMarkX()) {
-                result = true;
-            } else if (table[table.length - 1][i].hasMarkX()
-                    && table[table.length - 2][table.length - 2].hasMarkX()
-                    && table[i][table.length - 1].hasMarkX()) {
-                result = true;
-            } else if (table[i][0].hasMarkX()
-                    && table[i][1].hasMarkX()
-                    && table[i][2].hasMarkX()) {
-                result = true;
-            } else if (table[0][i].hasMarkX()
-                    && table[1][i].hasMarkX()
-                    && table[2][i].hasMarkX()) {
-                result = true;
+            if (table[i][i].hasMarkX()) {
+                count++;
+                if (count == table.length) {
+                    result = true;
+                }
+            } else if (table[table.length - 1 - i][i].hasMarkX()) {
+                count++;
+                if (count == table.length) {
+                    result = true;
+                }
+            }
+        }
+        for (int i = 0; i < table.length; i++) {
+            int plusCount = 0;
+            for (int j = 0; j < table.length; j++) {
+                if (table[i][j].hasMarkX()) {
+                    plusCount++;
+                    if (plusCount == table.length) {
+                        result = true;
+                    }
+                } else if (table[j][i].hasMarkX()) {
+                    plusCount++;
+                    if (plusCount == table.length) {
+                        result = true;
+                    }
+                }
             }
         }
         return result;
@@ -52,23 +63,34 @@ public class Logic3T {
      */
     public boolean isWinnerO() {
         boolean result = false;
+        int count = 0;
         for (int i = 0; i < table.length; i++) {
-            if (table[0][0].hasMarkO()
-                    && table[i][i].hasMarkO()
-                    && table[table.length - 1][table.length - 1].hasMarkO()) {
-                result = true;
-            } else if (table[table.length - 1][i].hasMarkO()
-                    && table[table.length - 2][table.length - 2].hasMarkO()
-                    && table[i][table.length - 1].hasMarkO()) {
-                result = true;
-            } else if (table[i][0].hasMarkO()
-                    && table[i][1].hasMarkO()
-                    && table[i][2].hasMarkO()) {
-                result = true;
-            } else if (table[0][i].hasMarkO()
-                    && table[1][i].hasMarkO()
-                    && table[2][i].hasMarkO()) {
-                result = true;
+            if (table[i][i].hasMarkO()) {
+                count++;
+                if (count == table.length) {
+                    result = true;
+                }
+            } else if (table[table.length - 1 - i][i].hasMarkO()) {
+                count++;
+                if (count == table.length) {
+                    result = true;
+                }
+            }
+        }
+        for (int i = 0; i < table.length; i++) {
+            int plusCount = 0;
+            for (int j = 0; j < table.length; j++) {
+                if (table[i][j].hasMarkO()) {
+                    plusCount++;
+                    if (plusCount == table.length) {
+                        result = true;
+                    }
+                } else if (table[j][i].hasMarkO()) {
+                    plusCount++;
+                    if (plusCount == table.length) {
+                        result = true;
+                    }
+                }
             }
         }
         return result;
