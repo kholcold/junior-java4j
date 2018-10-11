@@ -16,6 +16,7 @@ public class MatrixIterator implements Iterator {
 
     /**
      * Конструктор.
+     *
      * @param matrix Входящий массив.
      */
     public MatrixIterator(int[][] matrix) {
@@ -25,6 +26,7 @@ public class MatrixIterator implements Iterator {
 
     /**
      * Считаем кол-во элементов в массиве.
+     *
      * @param matrix Входящий массив.
      * @return Кол-во элементов.
      */
@@ -39,6 +41,7 @@ public class MatrixIterator implements Iterator {
 
     /**
      * Узнаем, есть ли следующий элемент, и не достигнут ли конец массива.
+     *
      * @return True or false.
      */
     @Override
@@ -48,6 +51,7 @@ public class MatrixIterator implements Iterator {
 
     /**
      * Получаем следующий элемент.
+     *
      * @return Элемент.
      */
     @Override
