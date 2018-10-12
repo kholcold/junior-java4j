@@ -51,10 +51,9 @@ public class EvenNumbersIterator implements Iterator {
      */
     @Override
     public Object next() {
-        if (hasNext()) {
-            return arrays[index++];
-        } else {
+        if (!hasNext()) {
             throw new NoSuchElementException();
         }
+        return arrays[index++];
     }
 }
