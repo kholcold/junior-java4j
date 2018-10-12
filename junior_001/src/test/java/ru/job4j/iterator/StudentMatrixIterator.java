@@ -13,7 +13,7 @@ public class StudentMatrixIterator {
 
     @Before
     public void setUp() {
-        it = new MatrixIterator(new int[][]{{1, 2, 3}, {4, 5, 6}, {}, {7, 8, 9}, {}});
+        it = new MatrixIterator(new int[][]{{1, 2, 3}, {4, 5, 6}, {1}, {7, 8, 9}, {1}});
     }
 
     @Test
@@ -31,11 +31,15 @@ public class StudentMatrixIterator {
         assertThat(it.hasNext(), is(true));
         assertThat(it.next(), is(6));
         assertThat(it.hasNext(), is(true));
+        assertThat(it.next(), is(1));
+        assertThat(it.hasNext(), is(true));
         assertThat(it.next(), is(7));
         assertThat(it.hasNext(), is(true));
         assertThat(it.next(), is(8));
         assertThat(it.hasNext(), is(true));
         assertThat(it.next(), is(9));
+        assertThat(it.hasNext(), is(true));
+        assertThat(it.next(), is(1));
         assertThat(it.hasNext(), is(false));
     }
 
@@ -47,9 +51,11 @@ public class StudentMatrixIterator {
         assertThat(it.next(), is(4));
         assertThat(it.next(), is(5));
         assertThat(it.next(), is(6));
+        assertThat(it.next(), is(1));
         assertThat(it.next(), is(7));
         assertThat(it.next(), is(8));
         assertThat(it.next(), is(9));
+        assertThat(it.next(), is(1));
     }
 
     @Test
@@ -62,9 +68,11 @@ public class StudentMatrixIterator {
         assertThat(it.next(), is(4));
         assertThat(it.next(), is(5));
         assertThat(it.next(), is(6));
+        assertThat(it.next(), is(1));
         assertThat(it.next(), is(7));
         assertThat(it.next(), is(8));
         assertThat(it.next(), is(9));
+        assertThat(it.next(), is(1));
     }
 
 }
